@@ -1,9 +1,13 @@
 package addSubjects;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.*;
+
+import addStudent.addStudent;
 
 
 
@@ -32,6 +36,7 @@ public class menuFrame extends JFrame {
 		
 		mHome =new JMenu("Home");
 		mHome.setMnemonic(KeyEvent.VK_H);
+		mHome.addActionListener(new homeActionListener());
 		
 		
 		mAdmin=new JMenu("Admin");
@@ -42,6 +47,7 @@ public class menuFrame extends JFrame {
 		
 		mStudent=new JMenu("Student");
 		mStudent.setMnemonic(KeyEvent.VK_S);
+		mStudent.addActionListener(new studentActionListener());
 		
 		mContact=new JMenu("Contact");
 		mContact.setMnemonic(KeyEvent.VK_C);
@@ -57,7 +63,29 @@ public class menuFrame extends JFrame {
 	}
 
 	
+		private class homeActionListener implements ActionListener{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		}
 		
+		private class studentActionListener implements ActionListener{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				addStudent addStudent = new addStudent();
+				addStudent.setVisible(true);
+			    addStudent.pack();
+			    addStudent.setLocationRelativeTo(null);
+			    addStudent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			}
+			
+		}
 		public static void main(String[] args) {
 			menuFrame mainframe = new menuFrame();
 			mainframe.setVisible(true);

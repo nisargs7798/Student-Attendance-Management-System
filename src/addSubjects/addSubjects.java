@@ -19,13 +19,13 @@ public class addSubjects extends menuFrame{
 		btnPanel.add(jbtnAdd);
 		jbtnAdd.setMnemonic('D');
 		lblTitle = new JLabel("Add New Subject");
-		lblYear = new JLabel("Year");
+		lblYear = new JLabel("Year", SwingConstants.CENTER);
 		txtYear = new JTextField();
-		lblSemester = new JLabel("Semester");
+		lblSemester = new JLabel("Semester", SwingConstants.CENTER);
 		txtSemester = new JTextField();
-		lblSubjCode = new JLabel("Subject Code");
+		lblSubjCode = new JLabel("Subject Code", SwingConstants.CENTER);
 		txtSubjCode = new JTextField();
-		lblsubjName = new JLabel("Subject Title");
+		lblsubjName = new JLabel("Subject Title", SwingConstants.CENTER);
 		txtSubjName = new JTextField();
 		
 		lblTitle.setBackground(Color.red);
