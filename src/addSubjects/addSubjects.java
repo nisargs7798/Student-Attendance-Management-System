@@ -1,8 +1,11 @@
 package addSubjects;
 
 import javax.swing.*;
+import validator.*;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class addSubjects extends menuFrame{
 
@@ -48,7 +51,31 @@ public class addSubjects extends menuFrame{
 		add(addSubjPanel, BorderLayout.CENTER);
 		add(btnPanel, BorderLayout.SOUTH);
 		
+		jbtnAdd.addActionListener(new addSubjListener());	
 	}
+	
+	private class addSubjListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			if(isValidData()) {
+				JOptionPane.showMessageDialog(null, "Subjects added successfully", "Add subjects", JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
+
+		private boolean isValidData() {
+			// TODO Auto-generated method stub
+			if(!Validator.isInteger(txtYear, "Subject Code")) return false;
+			if(!Validator.isInteger(txtSemester, "Semester")) return false;
+			if(!Validator.isPresent(txtSubjCode, "Subject Code")) return false;
+			if(!Validator.isPresent(txtSubjName, "Subject Name")) return false;
+			
+			return true;
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		addSubjects frame = new addSubjects();
 		frame.setTitle("Add Subjects");

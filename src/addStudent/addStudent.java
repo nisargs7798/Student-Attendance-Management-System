@@ -1,5 +1,6 @@
 package addStudent;
 import addSubjects.addSubjects;
+import validator.*;
 import addSubjects.menuFrame;
 import javax.swing.*;
 import java.awt.*;
@@ -61,23 +62,34 @@ public class addStudent extends menuFrame{
 		addStudPanel.add(lblStudCourse);
 		addStudPanel.add(jcboCourses);
 		
-		jbtnAdd.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-//				dispose();
-//				addSubjects frame = new addSubjects();
-//				frame.setVisible(true);
-//				frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-//				frame.setLocationRelativeTo(null);
-			}
-		});
+		jbtnAdd.addActionListener(new addStudentListener());
 		
 		setLayout(new BorderLayout());
 		add(titlePanel, BorderLayout.NORTH);
 		add(addStudPanel, BorderLayout.CENTER);
 		add(btnPanel, BorderLayout.SOUTH);
+	}
+	private class addStudentListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			if(isValidData()) {
+				JOptionPane.showMessageDialog(null, "Student added successfully", "Add subjects", JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
+		
+	}
+	
+	private boolean isValidData() {
+		// TODO Auto-generated method stub
+		if(!Validator.isInteger(txtStudID, "Student ID")) return false;
+		if(!Validator.isPresent(txtStudName, "Student Name")) return false;
+		if(!Validator.isPresent(txtEmail, "Email")) return false;
+		if(!Validator.isPresent(txtPassword, "password")) return false;
+		if(!Validator.isInteger(txtSemester, "Semester")) return false;
+		
+		return true;
 	}
 	public static void main(String[] args) {
 		addStudent frame = new addStudent();
