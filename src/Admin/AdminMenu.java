@@ -7,6 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import addFaculty.addFaculty;
+import addStudent.addStudent;
+import addSubjects.addSubjects;
 import addSubjects.menuFrame;
 
 import javax.swing.JLabel;
@@ -68,14 +71,42 @@ public class AdminMenu extends menuFrame {
 		rdbtnAddStudent.setBounds(47, 137, 109, 23);
 		contentPane.add(rdbtnAddStudent);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Add Subjects");
-		rdbtnNewRadioButton.setBackground(new Color(154, 205, 50));
-		rdbtnNewRadioButton.setBounds(47, 170, 109, 23);
-		contentPane.add(rdbtnNewRadioButton);
+		JRadioButton rdbtnAddSubjects = new JRadioButton("Add Subjects");
+		rdbtnAddSubjects.setBackground(new Color(154, 205, 50));
+		rdbtnAddSubjects.setBounds(47, 170, 109, 23);
+		contentPane.add(rdbtnAddSubjects);
 		
 		JButton btnGo = new JButton("GO!!!");
 		btnGo.setBackground(Color.ORANGE);
 		btnGo.setBounds(240, 115, 89, 23);
 		contentPane.add(btnGo);
+		
+		btnGo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if(rdbtnAddFaculty.isSelected()) {
+					dispose();
+					addFaculty frame = new addFaculty();
+					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
+				}
+				
+				else if (rdbtnAddStudent.isSelected()){
+					dispose();
+					addStudent frame = new addStudent();
+					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
+				}
+				else if (rdbtnAddSubjects.isSelected()){
+					dispose();
+					addSubjects frame = new addSubjects();
+					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
+				}
+			}
+		});
+		
 	}
 }

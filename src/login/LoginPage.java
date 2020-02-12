@@ -6,8 +6,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
+import Admin.AdminMenu;
+import addStudent.addStudent;
 import addSubjects.menuFrame;
 
 import javax.swing.JLabel;
@@ -23,7 +26,7 @@ public class LoginPage extends menuFrame {
 
 	private JPanel contentPane;
 	private JTextField textUsername;
-	private JTextField textPassword;
+	private JPasswordField textPassword;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -62,33 +65,39 @@ public class LoginPage extends menuFrame {
 		contentPane.add(textUsername);
 		textUsername.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setBackground(Color.ORANGE);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnLogin = new JButton("Login");
+		btnLogin.setBackground(Color.ORANGE);
+		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(isValidData()) {
 					JOptionPane.showMessageDialog(null, "Login successful", "Add subjects", JOptionPane.INFORMATION_MESSAGE);
+					dispose();
+					AdminMenu frame = new AdminMenu();
+					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				}
 				
 			}
 		});
-		btnNewButton.setBounds(62, 176, 89, 23);
-		contentPane.add(btnNewButton);
+		btnLogin.setBounds(62, 176, 89, 23);
+		contentPane.add(btnLogin);
 		
-		textPassword = new JTextField();
+		textPassword = new JPasswordField();
 		textPassword.setBounds(133, 117, 96, 20);
 		contentPane.add(textPassword);
 		textPassword.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("SignUp");
-		btnNewButton_1.setBackground(Color.ORANGE);
-		btnNewButton_1.setBounds(179, 176, 89, 23);
-		contentPane.add(btnNewButton_1);
+		JButton btnLogin_1 = new JButton("SignUp");
+		btnLogin_1.setBackground(Color.ORANGE);
+		btnLogin_1.setBounds(179, 176, 89, 23);
+		contentPane.add(btnLogin_1);
 		
 		JLabel lblLoginPage = new JLabel("Login Page");
 		lblLoginPage.setBackground(new Color(250, 240, 230));
 		lblLoginPage.setBounds(47, 29, 89, 28);
 		contentPane.add(lblLoginPage);
+		
+	
 	}
 	private boolean isValidData() {
 		// TODO Auto-generated method stub

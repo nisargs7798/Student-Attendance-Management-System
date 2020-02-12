@@ -1,6 +1,8 @@
 package addSubjects;
 
 
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -19,6 +21,7 @@ public class menuFrame extends JFrame {
 	private JMenu mStudent;
 	private JMenu mContact;
 	private JDesktopPane desktop;
+
 	
 	public menuFrame() {
 		this.initialize();
@@ -37,7 +40,6 @@ public class menuFrame extends JFrame {
 		mHome =new JMenu("Home");
 		mHome.setMnemonic(KeyEvent.VK_H);
 		mHome.addActionListener(new homeActionListener());
-		
 		
 		mAdmin=new JMenu("Admin");
 		mAdmin.setMnemonic(KeyEvent.VK_A);
@@ -60,6 +62,9 @@ public class menuFrame extends JFrame {
 	    mBar.add(mContact);
 	    
 	    this.setJMenuBar(mBar);
+	    
+		
+
 	}
 
 	
